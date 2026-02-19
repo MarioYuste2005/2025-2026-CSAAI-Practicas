@@ -66,4 +66,9 @@ img {
     color: black;
     text-decoration: none;
 }
+.boton {
+    height: 100px;
+    width: 200px;
+
+}
 /* Más sobre diseño web responsive https://www.w3schools.com/css/css_rwd_intro.asp */

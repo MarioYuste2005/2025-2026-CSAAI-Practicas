@@ -21,18 +21,18 @@ width: 75%;
 }
 
 /* Clear floats despues de las columnas para eliminar la superposición */
-.filla:after {
+.fila:after {
 content: "";
 display: table;
 clear: both;
 }
 
 #c1 {
-    background-color:#aaa;
+    background-color:#aa9595;
 }
 
 #c2 {
-    background-color:#bbb;
+    background-color:#ffffff;
 }
 
 /* estilos para imágenes https://www.w3schools.com/css/css3_images.asp */

@@ -3,7 +3,7 @@ body {
   padding: 5px;  /* relleno */
   margin: 10px;  /* Margen */
   border: solid;
-  border-color: red;
+  border-color: green;
 }
 
 /*  Propiedades de la caja del párrafo */

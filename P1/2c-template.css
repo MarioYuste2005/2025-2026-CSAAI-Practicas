@@ -9,17 +9,29 @@
 .columna {
 float: left;
 padding: 10px;
-min-height: 500px;
+min-height: 400px;
+margin-bottom: 15px;
 }
 
 .izquierda {
-width: 25%;
+width: 24%;
+margin-right: 15px;
+
 }
 
 .derecha {
-width: 75%;
+width: 74%;
 }
 
+.abajo1 {
+    width: 59%;
+    margin-right: 15px;
+
+}
+.abajo2 {
+    width: 39%;
+
+}
 /* Clear floats despues de las columnas para eliminar la superposición */
 .fila:after {
 content: "";
@@ -29,11 +41,27 @@ clear: both;
 
 #c1 {
     background-color:#aa9595;
+    border: solid;
+    border-color: black;
 }
 
 #c2 {
     background-color:#ffffff;
+    border: solid;
+    border-color: black;
 }
+#c3 {
+    background-color:#aa9595;
+    border: solid;
+    border-color: black;
+}
+
+#c4 {
+    background-color:#ffffff;
+    border: solid;
+    border-color: black;
+}
+
 
 /* estilos para imágenes https://www.w3schools.com/css/css3_images.asp */
 /* posicionamiento de imágenes https://www.w3schools.com/css/css_positioning.asp */
@@ -71,6 +99,22 @@ img {
     text-decoration: none;
     height: 100px;
     width: 200px;
+    margin-right: 15px;
 }
-
+.lista {
+    line-height: 1.5;
+    
+}
+.titulo {
+    margin: 0px;
+    padding: 0px; /* Relleno */
+    border:solid;
+    border-color: rgb(0, 0, 0);
+    margin-bottom: 5px;
+    background-color: aqua;
+    text-align: center;
+}
+.nombre {
+    text-align: center;
+}
 /* Más sobre diseño web responsive https://www.w3schools.com/css/css_rwd_intro.asp */

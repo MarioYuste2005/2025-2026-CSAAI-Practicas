@@ -61,7 +61,42 @@ clear: both;
     border: solid;
     border-color: black;
 }
+#p1 {
+    background-color:#aa9595;
+    border: solid;
+    border-color: black;
+    width: 50%;
+    margin-bottom: 15px;
+    float: right;
+}
 
+#p2 {
+    background-color:#ffffff;
+    border: solid;
+    border-color: black;
+    width: 50%;
+    margin-bottom: 15px;
+    margin-top:80px;
+    
+}
+#p3 {
+    background-color:#aa9595;
+    border: solid;
+    border-color: black;
+    width: 50%;
+    margin-bottom: 15px;
+    float: right;
+}
+
+#p4 {
+    background-color:#ffffff;
+    border: solid;
+    border-color: black;
+    width: 50%;
+    margin-bottom: 15px;
+    margin-top:80px;
+    
+}
 
 /* estilos para imágenes https://www.w3schools.com/css/css3_images.asp */
 /* posicionamiento de imágenes https://www.w3schools.com/css/css_positioning.asp */

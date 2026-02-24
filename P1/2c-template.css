@@ -9,7 +9,7 @@
 .columna {
 float: left;
 padding: 10px;
-min-height: 400px;
+min-height: 500px;
 margin-bottom: 15px;
 }
 
@@ -24,12 +24,12 @@ width: 74%;
 }
 
 .abajo1 {
-    width: 59%;
+    width: 100%;
     margin-right: 15px;
 
 }
 .abajo2 {
-    width: 39%;
+    width: 100%;
 
 }
 /* Clear floats despues de las columnas para eliminar la superposición */
@@ -54,6 +54,10 @@ clear: both;
     background-color:#aa9595;
     border: solid;
     border-color: black;
+    padding: 50px;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 15px;
 }
 
 #c4 {
@@ -61,13 +65,19 @@ clear: both;
     border: solid;
     border-color: black;
 }
+.i {
+    width: 30%;
+    margin-left: 115px;
+    margin-top: 20px;
+}
+
 #p1 {
     background-color:#aa9595;
     border: solid;
     border-color: black;
     width: 50%;
-    margin-bottom: 15px;
     float: right;
+    padding: 10px;
 }
 
 #p2 {
@@ -75,9 +85,8 @@ clear: both;
     border: solid;
     border-color: black;
     width: 50%;
-    margin-bottom: 15px;
-    margin: 100px;
     float: left;
+    padding: 10px;
     
 }
 #p3 {
@@ -85,8 +94,8 @@ clear: both;
     border: solid;
     border-color: black;
     width: 50%;
-    margin-bottom: 15px;
     float: right;
+    padding: 10px;
 }
 
 #p4 {
@@ -94,10 +103,27 @@ clear: both;
     border: solid;
     border-color: black;
     width: 50%;
-    margin-bottom: 15px;
-    margin-top:100px;
     float: left;
+    padding: 10px;
     
+}
+#g1 {
+    float: right;
+    margin-bottom: 15px;
+}
+
+#g2 {
+    float: left;
+    margin-bottom: 15px;
+}
+#g3 {
+    float: right;
+    margin-bottom: 15px;
+}
+
+#g4 {
+    float: left;
+    margin-bottom: 15px;
 }
 
 /* estilos para imágenes https://www.w3schools.com/css/css3_images.asp */
@@ -113,6 +139,7 @@ img {
     float: left;
     width: 50%;
   }
+
 
 /* Responsive layout - cuando el ancho de pantalla es menor a 600px, muestra las columnas apiladas. */
 /* Así conseguimos que el contenido se vea bien en dispositvos móviles */
@@ -140,6 +167,7 @@ img {
 }
 .lista {
     line-height: 1.5;
+    margin-top: 15px;
     
 }
 .titulo {
@@ -153,5 +181,23 @@ img {
 }
 .nombre {
     text-align: center;
+}
+.exp {
+    width: 50%;
+    margin-left: 200px;
+}
+
+#imghtml {
+    margin-bottom: 20px;
+}
+#imgcss {
+    margin-bottom: 20px;
+}
+
+.pie {
+    margin-top: 75px;
+}
+.hist {
+    width: 30%;
 }
 /* Más sobre diseño web responsive https://www.w3schools.com/css/css_rwd_intro.asp */

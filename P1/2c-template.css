@@ -40,7 +40,7 @@ clear: both;
 }
 
 #c1 {
-    background-color:#aa9595;
+    background-color:#267326;
     border: solid;
     border-color: black;
 }
@@ -51,7 +51,7 @@ clear: both;
     border-color: black;
 }
 #c3 {
-    background-color:#aa9595;
+    background-color:#267326;
     border: solid;
     border-color: black;
     padding: 50px;
@@ -72,7 +72,7 @@ clear: both;
 }
 
 #p1 {
-    background-color:#aa9595;
+    background-color:#267326;
     border: solid;
     border-color: black;
     width: 50%;
@@ -90,7 +90,7 @@ clear: both;
     
 }
 #p3 {
-    background-color:#aa9595;
+    background-color:#267326;
     border: solid;
     border-color: black;
     width: 50%;
@@ -176,7 +176,7 @@ img {
     border:solid;
     border-color: rgb(0, 0, 0);
     margin-bottom: 5px;
-    background-color: aqua;
+    background-color: #cc9900;
     text-align: center;
 }
 .nombre {
@@ -199,5 +199,8 @@ img {
 }
 .hist {
     width: 30%;
+}
+body {
+    background-image: url(Summoners_Rift_map_s14.webp);
 }
 /* Más sobre diseño web responsive https://www.w3schools.com/css/css_rwd_intro.asp */

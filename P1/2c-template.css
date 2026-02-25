@@ -40,20 +40,20 @@ clear: both;
 }
 
 #c1 {
-    background-color:#267326;
+    background-color:#ccffdd;
     border: solid;
-    border-color: black;
+    border-color: #99ffbb;
 }
 
 #c2 {
-    background-color:#008080;
+    background-color:#e6ffff;
     border: solid;
-    border-color: black;
+    border-color: #b3ffff;
 }
 #c3 {
-    background-color:#267326;
+    background-color:#ccffdd;
     border: solid;
-    border-color: black;
+    border-color: #99ffbb;
     padding: 50px;
     padding-top: 15px;
     text-align: center;
@@ -61,47 +61,48 @@ clear: both;
 }
 
 #c4 {
-    background-color:#008080;
+    background-color:#e6ffff;
     border: solid;
-    border-color: black;
+    border-color: #b3ffff;
 }
 .i {
     width: 30%;
     margin-left: 115px;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #p1 {
-    background-color:#267326;
+    background-color:#ccffdd;
     border: solid;
-    border-color: black;
+    border-color: #99ffbb;
     width: 50%;
     float: right;
     padding: 10px;
 }
 
 #p2 {
-    background-color:#008080;
+    background-color:#e6ffff;
     border: solid;
-    border-color: black;
+    border-color: #b3ffff;
     width: 50%;
     float: left;
     padding: 10px;
     
 }
 #p3 {
-    background-color:#267326;
+    background-color:#ccffdd;
     border: solid;
-    border-color: black;
+    border-color: #99ffbb;
     width: 50%;
     float: right;
     padding: 10px;
 }
 
 #p4 {
-    background-color:#008080;
+    background-color:#e6ffff;
     border: solid;
-    border-color: black;
+    border-color: #b3ffff;
     width: 50%;
     float: left;
     padding: 10px;
@@ -155,11 +156,11 @@ img {
 }
 
 .enlace {
-    color: black;
+    color: #000000;
     text-decoration: none;
 }
 .boton {
-    color: black;
+    color: #000000;
     text-decoration: none;
     height: 100px;
     width: 200px;

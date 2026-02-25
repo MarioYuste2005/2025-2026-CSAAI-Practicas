@@ -69,6 +69,8 @@ clear: both;
     width: 30%;
     margin-left: 115px;
     margin-bottom: 20px;
+    border: solid;
+    border-color: #000000;
 }
 
 #p1 {

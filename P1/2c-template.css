@@ -110,21 +110,17 @@ clear: both;
 }
 #g1 {
     float: right;
-    margin-bottom: 15px;
 }
 
 #g2 {
     float: left;
-    margin-bottom: 15px;
 }
 #g3 {
     float: right;
-    margin-bottom: 15px;
 }
 
 #g4 {
     float: left;
-    margin-bottom: 15px;
 }
 
 /* estilos para imágenes https://www.w3schools.com/css/css3_images.asp */

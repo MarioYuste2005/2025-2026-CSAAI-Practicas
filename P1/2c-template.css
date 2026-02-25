@@ -176,9 +176,9 @@ img {
     margin: 0px;
     padding: 0px; /* Relleno */
     border:solid;
-    border-color: rgb(0, 0, 0);
+    border-color: #ffff99;
     margin-bottom: 5px;
-    background-color: #cc9901;
+    background-color: #ffffcc;
     text-align: center;
 }
 .nombre {

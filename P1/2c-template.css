@@ -78,6 +78,7 @@ clear: both;
     width: 50%;
     float: right;
     padding: 10px;
+    min-height: 60;
 }
 
 #p2 {
@@ -87,6 +88,7 @@ clear: both;
     width: 50%;
     float: left;
     padding: 10px;
+    min-height: 60;
     
 }
 #p3 {
@@ -96,6 +98,7 @@ clear: both;
     width: 50%;
     float: right;
     padding: 10px;
+    min-height: 60;
 }
 
 #p4 {
@@ -105,6 +108,7 @@ clear: both;
     width: 50%;
     float: left;
     padding: 10px;
+    min-height: 60;
     
 }
 #g1 {

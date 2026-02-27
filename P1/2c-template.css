@@ -67,8 +67,9 @@ clear: both;
 }
 .i {
     width: 30%;
-    margin-left: 115px;
-    margin-bottom: 20px;
+    margin-left: 80px;
+    margin-bottom: 20x;
+    margin-top: 35px;
     border: solid;
     border-color: #000000;
 }
@@ -79,8 +80,8 @@ clear: both;
     border-color: #99ffbb;
     width: 50%;
     float: right;
-    padding: 10px;
-    min-height: 200px;
+    padding: 10px;   
+
 }
 
 #p2 {
@@ -90,7 +91,6 @@ clear: both;
     width: 50%;
     float: left;
     padding: 10px;
-    min-height: 200px;
     
 }
 #p3 {
@@ -100,7 +100,6 @@ clear: both;
     width: 50%;
     float: right;
     padding: 10px;
-    min-height: 200px;
 }
 
 #p4 {
@@ -110,7 +109,6 @@ clear: both;
     width: 50%;
     float: left;
     padding: 10px;
-    min-height: 200px;
     
 }
 #g1 {
@@ -183,6 +181,8 @@ img {
 }
 .nombre {
     text-align: center;
+    color: white;
+    text-shadow: -1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black, 1px -1px 0 black;
 }
 .exp {
     width: 50%;

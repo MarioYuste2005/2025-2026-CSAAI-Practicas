@@ -1,0 +1,79 @@
+#teclado {
+    border: solid;
+    border-color: #00ff44;
+    padding: 10px;
+    margin-top: 10px;
+}
+.boton {
+    width: 30%;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 100px;
+    margin-bottom: 5px;
+    font-size: 30px;
+    color: #3DFF00;
+    background-color: transparent;
+    border-color: #00FF44;
+    border-width: 5px;
+}
+.botonin{ 
+    width: 30%;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 100px;
+    margin-bottom: 5px;
+    font-size: 30px;
+    color: #000000;
+    background-color: transparent;
+    border-color: #00FF44;
+    border-width: 5px;
+}
+.botoninf{
+    width: 30%;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 100px;
+    margin-bottom: 5px;
+    font-size: 40px;
+    color: #FC1723;
+    background-color: transparent;
+    border-color: #00FF44;
+    border-width: 5px;
+}
+#titulo {
+    font-size: 70px;
+    color: #3DFF00;
+    text-align: center;
+}
+#pantalla {
+    border:solid;
+    border-color: #00ff44;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+#display {
+    border:solid;
+    border-color: #00ff44;
+    padding: 10px;
+}
+.digi{
+    border: solid;
+    border-color: #00ff44;
+    width: 100px;
+    height: 100px;
+    color: #00FF44;
+    background-color: transparent;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bolder;
+
+}
+#reloj{
+    color: grey;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bolder;
+}
+body{
+    background-color: black;
+}

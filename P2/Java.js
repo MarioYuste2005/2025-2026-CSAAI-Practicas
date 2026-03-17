@@ -38,6 +38,7 @@ function generarCodigo(){
         
         timer = true;
         intentos.textContent = `Numero de Intentos Restantes: ${trys}`;
+        
     }
 
 }
@@ -64,6 +65,8 @@ function actualizarReloj(){
 // =======================
 
 function startTimer(){
+
+    activarBotones();
 
     if(intervalo !== null) return;
 
@@ -106,6 +109,8 @@ function resetTimer(){
     estado.textContent = "Todo listo, pulsa start o un numero para empezar";
 
     activarBotones();
+
+    start.disabled = false;
 
 }
 
@@ -151,6 +156,7 @@ function comprobarVictoria(){
         estado.textContent = "🎉 Bomba desactivada";
         stopTimer();
         bloquearBotones();
+        start.disabled = true;
 
     }
 
@@ -183,10 +189,10 @@ function activarBotones(){
 start.addEventListener("click", startTimer);
 stop.addEventListener("click", stopTimer);
 reset.addEventListener("click", resetTimer);
-
 // =======================
 // INICIO
 // =======================
+
 
 trys = 7;
 timer = true;
@@ -202,6 +208,7 @@ let botones = document.querySelectorAll(".boton");
 botones.forEach(boton => {
     boton.addEventListener("click", () => {
 
+        startTimer();
         let numero = parseInt(boton.textContent);
 
         comprobarNumero(numero);

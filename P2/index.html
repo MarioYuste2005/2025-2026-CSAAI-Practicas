@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOOM!</title>
     <link rel="stylesheet" href="css.css">  
+    <script src="Java.js" defer></script>
 </head>
 <body>
     <h1 id="titulo"> BOOM! </h1>
@@ -12,30 +13,32 @@
         <div id = "display">
             <center>
                 <table>
-                    <th class="digi">*</th>
-                    <th class="digi">*</th>
-                    <th class="digi">*</th>
-                    <th class="digi">*</th>
+                    <th class="digi" id="d1">*</th>
+                    <th class="digi" id="d2">*</th>
+                    <th class="digi" id="d3">*</th>
+                    <th class="digi" id="d4">*</th>
                 </table>
             </center>
-            <div id="reloj"> 
-                <p>00:00:00</p>
+            <div> 
+                <p id="reloj">00:00:00</p>
+                <p id="intentos">Numero de Intentos Restantes: X</p>
+                <p id="estado">Todo listo, pulsa start o un numero para empezar</p>
             </div>
         </div>
 
         <div id="teclado">
             <center>
-                <button class = "boton" id="bot7"> 7 </button>
-                <button class = "boton" id="bot8"> 8 </button>
-                <button class = "boton" id="bot9"> 9 </button>
-                <button class = "boton" id="bot4"> 4 </button>
-                <button class = "boton" id="bot5"> 5 </button>
-                <button class = "boton" id="bot6"> 6 </button>
-                <button class = "boton" id="bot1"> 1 </button>
-                <button class = "boton" id="bot2"> 2 </button>
-                <button class = "boton" id="bot3"> 3 </button>
+                <button class = "boton" id="bot7" value="7"> 7 </button>
+                <button class = "boton" id="bot8" value="8"> 8 </button>
+                <button class = "boton" id="bot9" value="9"> 9 </button>
+                <button class = "boton" id="bot4" value="4"> 4 </button>
+                <button class = "boton" id="bot5" value="5"> 5 </button>
+                <button class = "boton" id="bot6" value="6"> 6 </button>
+                <button class = "boton" id="bot1" value="1"> 1 </button>
+                <button class = "boton" id="bot2" value="2"> 2 </button>
+                <button class = "boton" id="bot3" value="3"> 3 </button>
                 <button class = "botonin" id="bota"> a </button>
-                <button class = "boton" id="bot0"> 0 </button>
+                <button class = "boton" id="bot0" value="0"> 0 </button>
                 <button class = "botonin" id="botb"> b </button>
                 <button class = "botoninf" id="botstart"> START </button>
                 <button class = "botoninf" id="botstop"> STOP </button>

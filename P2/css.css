@@ -61,7 +61,7 @@
     border-color: #00ff44;
     width: 100px;
     height: 100px;
-    color: #00FF44;
+    color:#FC1723;
     background-color: transparent;
     text-align: center;
     font-size: 50px;
@@ -73,6 +73,18 @@
     text-align: center;
     font-size: 50px;
     font-weight: bolder;
+}
+#intentos{
+    color: lightgray;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+}
+#estado{
+    color: #3DFF00;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
 }
 body{
     background-color: black;

@@ -35,7 +35,8 @@ function generarCodigo(){
 
         display[i].textContent = "*";
         display[i].style.color = "#FC1723";
-       
+        
+        timer = true;
         intentos.textContent = `Numero de Intentos Restantes: ${trys}`;
     }
 
@@ -68,7 +69,6 @@ function startTimer(){
 
     intervalo = setInterval(() => {
 
-        timer = true;
         tiempo -= 10;
         actualizarReloj();
 
@@ -80,6 +80,7 @@ function startTimer(){
             timer = false;
             reloj.textContent = "00:00:000";
             estado.textContent = "💥 BOOM!";
+            bloquearBotones();
         }
 
     },10);
@@ -103,6 +104,8 @@ function resetTimer(){
     generarCodigo();
 
     estado.textContent = "Todo listo, pulsa start o un numero para empezar";
+
+    activarBotones();
 
 }
 
@@ -147,6 +150,7 @@ function comprobarVictoria(){
 
         estado.textContent = "🎉 Bomba desactivada";
         stopTimer();
+        bloquearBotones();
 
     }
 
@@ -156,6 +160,39 @@ function restar(){
     trys -= 1;
     intentos.textContent = `Numero de Intentos Restantes: ${trys}`;
 }
+
+function bloquearBotones(){
+
+    botones.forEach(boton => {
+        boton.disabled = true;
+    });
+
+}
+
+function activarBotones(){
+
+    botones.forEach(boton => {
+        boton.disabled = false;
+    });
+
+}
+// =======================
+// BOTONES CONTROL
+// =======================
+
+start.addEventListener("click", startTimer);
+stop.addEventListener("click", stopTimer);
+reset.addEventListener("click", resetTimer);
+
+// =======================
+// INICIO
+// =======================
+
+trys = 7;
+timer = true;
+generarCodigo();
+actualizarReloj();
+
 // =======================
 // BOTONES NUMERICOS
 // =======================
@@ -163,7 +200,6 @@ function restar(){
 let botones = document.querySelectorAll(".boton");
 
 botones.forEach(boton => {
-
     boton.addEventListener("click", () => {
 
         let numero = parseInt(boton.textContent);
@@ -184,19 +220,3 @@ botones.forEach(boton => {
     });
 
 });
-
-// =======================
-// BOTONES CONTROL
-// =======================
-
-start.addEventListener("click", startTimer);
-stop.addEventListener("click", stopTimer);
-reset.addEventListener("click", resetTimer);
-
-// =======================
-// INICIO
-// =======================
-
-trys = 7;
-generarCodigo();
-actualizarReloj();

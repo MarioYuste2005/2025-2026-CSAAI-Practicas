@@ -62,7 +62,7 @@ function startTimer(){
 
             timer = false;
             reloj.textContent = "00:00:000";
-            estado.textContent = `💥 BOOM! La bomba ha explotado, el codigo era ${codigo}`;
+            estado.textContent = `💥 BOOM! La bomba ha explotado, el codigo era ${codigo[0]}${codigo[1]}${codigo[2]}${codigo[3]}`;
             bloquearBotones();
         }
 

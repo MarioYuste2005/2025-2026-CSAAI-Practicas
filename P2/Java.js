@@ -1,8 +1,4 @@
-// =======================
-// VARIABLES TEMPORIZADOR
-// =======================
-
-let tiempo = 60000; // 1 minuto en milisegundos
+let tiempo = 60000;
 let intervalo = null;
 
 const reloj = document.getElementById("reloj");
@@ -13,16 +9,8 @@ const stop = document.getElementById("botstop");
 const reset = document.getElementById("botreset");
 const intentos = document.getElementById("intentos");
 
-// =======================
-// VARIABLES CODIGO SECRETO
-// =======================
-
 let codigo = [];
 let display = document.querySelectorAll(".digi");
-
-// =======================
-// GENERAR CODIGO
-// =======================
 
 function generarCodigo(){
 
@@ -43,10 +31,6 @@ function generarCodigo(){
 
 }
 
-// =======================
-// RELOJ
-// =======================
-
 function actualizarReloj(){
 
     let minutos = Math.floor(tiempo / 60000);
@@ -59,10 +43,6 @@ function actualizarReloj(){
 
     reloj.textContent = `${minutos}:${segundos}:${milisegundos}`;
 }
-
-// =======================
-// TEMPORIZADOR
-// =======================
 
 function startTimer(){
 
@@ -114,10 +94,6 @@ function resetTimer(){
 
 }
 
-// =======================
-// COMPROBAR NUMERO
-// =======================
-
 function comprobarNumero(numero){
 
     for(let i = 0; i < codigo.length; i++){
@@ -134,10 +110,6 @@ function comprobarNumero(numero){
     comprobarVictoria();
 
 }
-
-// =======================
-// COMPROBAR VICTORIA
-// =======================
 
 function comprobarVictoria(){
 
@@ -182,26 +154,15 @@ function activarBotones(){
     });
 
 }
-// =======================
-// BOTONES CONTROL
-// =======================
 
 start.addEventListener("click", startTimer);
 stop.addEventListener("click", stopTimer);
 reset.addEventListener("click", resetTimer);
-// =======================
-// INICIO
-// =======================
-
 
 trys = 7;
 timer = true;
 generarCodigo();
 actualizarReloj();
-
-// =======================
-// BOTONES NUMERICOS
-// =======================
 
 let botones = document.querySelectorAll(".boton");
 

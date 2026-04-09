@@ -4,9 +4,7 @@ const ctx = canvas.getContext("2d");
 canvas.width = 800;
 canvas.height = 600;
 
-// =====================
-// 🖼️ IMÁGENES
-// =====================
+
 let shipImg = new Image();
 shipImg.src = "Pop1.png";
 
@@ -16,9 +14,7 @@ shipShootImg.src = "Pop2.png";
 let alienImg = new Image();
 alienImg.src = "alien.png";
 
-// =====================
-// 🚀 PLAYER
-// =====================
+
 let playerX = 400;
 let playerY = 540;
 let playerWidth = 60;
@@ -28,15 +24,11 @@ let lives = 3;
 let shooting = false;
 let shootTimer = 0;
 
-// =====================
-// 🔋 ENERGÍA
-// =====================
+
 let energy = 5;
 let maxEnergy = 5;
 
-// =====================
-// 🎮 INPUT
-// =====================
+
 let left = false;
 let right = false;
 let space = false;
@@ -53,15 +45,11 @@ document.addEventListener("keyup", function(e) {
     if (e.key === " ") space = false;
 });
 
-// =====================
-// 🔫 BALAS
-// =====================
+
 let bullets = [];
 let enemyBullets = [];
 
-// =====================
-// 👾 ALIENS
-// =====================
+
 let aliens = [];
 let rows = 3;
 let cols = 8;
@@ -80,15 +68,11 @@ for (let i = 0; i < rows; i++) {
 let direction = 1;
 let speed = 1;
 
-// =====================
-// 🧮 ESTADO
-// =====================
+
 let score = 0;
 let gameOver = false;
 
-// =====================
-// 🔫 DISPARO
-// =====================
+
 function shoot() {
     if (energy > 0) {
         bullets.push({
@@ -102,18 +86,13 @@ function shoot() {
         shootTimer = 10;
     }
 }
-// =====================
-// 🔋 RECARGA
-// =====================
+
 setInterval(function() {
     if (energy < maxEnergy) {
         energy++;
     }
 }, 500);
 
-// =====================
-// 👾 DISPARO ENEMIGO
-// =====================
 setInterval(function() {
     if (aliens.length > 0) {
         let r = Math.floor(Math.random() * aliens.length);
@@ -126,20 +105,16 @@ setInterval(function() {
     }
 }, 1000);
 
-// =====================
-// 🔄 UPDATE
-// =====================
+
 function update() {
 
     if (gameOver) return;
 
-    // MOVIMIENTO PLAYER
     if (left && playerX > 0) playerX -= playerSpeed;
     if (right && playerX < canvas.width - playerWidth) playerX += playerSpeed;
 
     if (space) shoot();
 
-    // BALAS PLAYER
     for (let i = 0; i < bullets.length; i++) {
         bullets[i].y -= 5;
 
@@ -149,7 +124,6 @@ function update() {
         }
     }
 
-    // BALAS ENEMIGAS
     for (let i = 0; i < enemyBullets.length; i++) {
         enemyBullets[i].y += 4;
 
@@ -169,7 +143,6 @@ function update() {
         }
     }
 
-    // MOVIMIENTO ALIENS
     let edge = false;
 
     for (let i = 0; i < aliens.length; i++) {
@@ -180,7 +153,6 @@ function update() {
         }
     }
 
-    // 🚨 SI LLEGAN AL FONDO → GAME OVER
     for (let i = 0; i < aliens.length; i++) {
         if (aliens[i].y + aliens[i].h >= playerY) {
             gameOver = true;
@@ -195,10 +167,8 @@ function update() {
         }
     }
 
-    // VELOCIDAD PROGRESIVA
     speed = 1 + (3 - aliens.length / 10);
 
-    // COLISIONES
     for (let i = 0; i < bullets.length; i++) {
         for (let j = 0; j < aliens.length; j++) {
 
@@ -231,14 +201,10 @@ function update() {
 }
 }
 
-// =====================
-// 🎨 DRAW
-// =====================
 function draw() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // 🚀 PLAYER (SPRITE)
     let img = shipImg;
 
     if (shooting) {
@@ -246,19 +212,16 @@ function draw() {
     }
 
     ctx.drawImage(img, playerX, playerY, playerWidth, playerHeight);
-    // 🔫 BALAS
     ctx.fillStyle = "yellow";
     for (let i = 0; i < bullets.length; i++) {
         ctx.fillRect(bullets[i].x, bullets[i].y, 4, 10);
     }
 
-    // 🔴 BALAS ENEMIGAS
     ctx.fillStyle = "red";
     for (let i = 0; i < enemyBullets.length; i++) {
         ctx.fillRect(enemyBullets[i].x, enemyBullets[i].y, 4, 10);
     }
 
-    // 👾 ALIENS (SPRITE)
     for (let i = 0; i < aliens.length; i++) {
         ctx.drawImage(
             alienImg,
@@ -269,14 +232,12 @@ function draw() {
         );
     }
 
-    // 📊 UI
     ctx.fillStyle = "white";
     ctx.font = "20px Arial";
     ctx.fillText("Puntos: " + score, 10, 20);
     ctx.fillText("Vidas: " + lives, 10, 40);
     ctx.fillText("Energia: " + energy, 10, 60);
 
-    // FINAL
     if (gameOver) {
         ctx.font = "40px Arial";
 
@@ -288,15 +249,11 @@ function draw() {
     }
 }
 
-// =====================
-// 🔁 LOOP
-// =====================
 function loop() {
     update();
     draw();
 }
 
-// INICIAR JUEGO CUANDO CARGUE LA IMAGEN
 shipImg.onload = function() {
     setInterval(loop, 1000 / 60);
 };

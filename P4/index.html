@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beat the Word</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <h1>Beat the Word</h1>
+
+  <div class="controls">
+    <select id="pairSelect">
+      <option value="casa-cama">Casa / Cama</option>
+      <option value="sol-sal">Sol / Sal</option>
+    </select>
+
+    <select id="levelSelect">
+      <option value="1">Nivel 1</option>
+      <option value="2">Nivel 2</option>
+      <option value="3">Nivel 3</option>
+      <option value="4">Nivel 4</option>
+      <option value="5">Nivel 5</option>
+    </select>
+
+    <button id="startBtn">Comenzar</button>
+    <button id="stopBtn">Detener</button>
+    <button id="musicBtn">Música ON/OFF</button>
+  </div>
+
+  <div class="info">
+    <p>Nivel: <span id="currentLevel">-</span></p>
+    <p>Tiempo: <span id="time">0</span>s</p>
+    <p>Estado: <span id="status">Esperando</span></p>
+  </div>
+
+  <div id="message">Pulsa comenzar</div>
+
+  <div class="grid" id="grid"></div>
+
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+</body>
+</html>

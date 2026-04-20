@@ -17,7 +17,10 @@ let seconds = 0;
 
 const pairs = {
   "casa-cama": ["🏠CASA", "🛏️CAMA"],
-  "sol-sal": ["☀️SOL", "🧂SAL"]
+  "sol-sal": ["☀️SOL", "🧂SAL"],
+  "gato-pato": ["🐈GATO", "🦆PATO"],
+  "luna-tuna": ["🌙LUNA", "🐟TUNA"]
+  
 };
 
 const levels = {

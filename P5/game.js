@@ -17,6 +17,11 @@ let golesRojo = 0;
 let gamePaused = false;
 let mensajeGol = "";
 
+let gameFinished = false;
+
+let currentMode = null;
+let gameStarted = false;
+
 const keys = {
   w: false,
   a: false,
@@ -41,12 +46,96 @@ window.addEventListener("keyup", (e) => {
 
 window.addEventListener("keydown", (e) => {
 
-  if (gamePaused && e.key.toLowerCase() === "c") {
+  const key = e.key.toLowerCase();
+
+
+  if (!gameStarted) {
+
+    if (key === "1") {
+
+      currentMode = "3goals";
+      gameStarted = true;
+
+      golesAzul = 0;
+      golesRojo = 0;
+
+      resetPositions();
+    }
+
+    if (key === "2") {
+
+      currentMode = "golden";
+      gameStarted = true;
+
+      golesAzul = 0;
+      golesRojo = 0;
+
+      resetPositions();
+    }
+
+    return;
+  }
+
+  // REANUDAR TRAS GOL
+  if (gamePaused && !gameFinished && key === "c") {
     resetPositions();
     gamePaused = false;
   }
 
+  // REINICIAR PARTIDA
+  if (gameFinished && key === "c") {
+
+    golesAzul = 0;
+    golesRojo = 0;
+
+    gameFinished = false;
+    gamePaused = false;
+
+    gameStarted = false;
+    currentMode = null;
+
+    mensajeGol = "";
+  }
 });
+
+function drawMenu() {
+
+  ctx.fillStyle = "#1e6b40";
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+  ctx.fillStyle = "white";
+
+  ctx.textAlign = "center";
+
+  ctx.font = "bold 60px Arial";
+  ctx.fillText(
+    "FUTBOLITOS",
+    WIDTH / 2,
+    140
+  );
+
+  ctx.font = "36px Arial";
+
+  ctx.fillText(
+    "Pulsa 1 → Partido a 3 goles",
+    WIDTH / 2,
+    280
+  );
+
+  ctx.fillText(
+    "Pulsa 2 → Gol de oro",
+    WIDTH / 2,
+    360
+  );
+
+  ctx.font = "24px Arial";
+
+  ctx.fillText(
+    "Primer equipo en marcar gana",
+    WIDTH / 2,
+    430
+  );
+}
 
 function resetPositions() {
 
@@ -746,7 +835,24 @@ function update() {
   ) {
 
     golesRojo++;
-    mensajeGol = "¡¡¡ GOL DEL EQUIPO ROJO !!!";
+
+    // ¿ha ganado?
+    let rojoGana = false;
+
+    if (currentMode === "3goals" && golesRojo >= 3) {
+      rojoGana = true;
+    }
+
+    if (currentMode === "golden" && golesRojo >= 1) {
+      rojoGana = true;
+    }
+
+    if (rojoGana) {
+      mensajeGol = "¡¡¡ EL EQUIPO ROJO GANA !!!";
+      gameFinished = true;
+    } else {
+      mensajeGol = "¡¡¡ GOL DEL EQUIPO ROJO !!!";
+    }
     gamePaused = true;
   }
 
@@ -758,7 +864,24 @@ function update() {
   ) {
 
     golesAzul++;
-    mensajeGol = "¡¡¡ GOL DEL EQUIPO AZUL !!!";
+
+    // ¿ha ganado?
+    let azulGana = false;
+
+    if (currentMode === "3goals" && golesAzul >= 3) {
+      azulGana = true;
+    }
+
+    if (currentMode === "golden" && golesAzul >= 1) {
+      azulGana = true;
+    }
+
+    if (azulGana) {
+      mensajeGol = "¡¡¡ EL EQUIPO AZUL GANA !!!";
+      gameFinished = true;
+    } else {
+      mensajeGol = "¡¡¡ GOL DEL EQUIPO AZUL !!!";
+    }
     gamePaused = true;
   }
 }
@@ -790,19 +913,34 @@ function draw() {
 
     ctx.font = "28px Arial";
 
+  if (gameFinished) {
+
     ctx.fillText(
-      "Pulsa cualquier C para continuar",
+      "Pulsa C para volver a empezar",
       WIDTH / 2,
       HEIGHT / 2 + 40
     );
 
+  } else {
+
+    ctx.fillText(
+      "Pulsa C para continuar",
+      WIDTH / 2,
+      HEIGHT / 2 + 40
+    );
+
+  }
     ctx.restore();
   }
 }
 
 function loop() {
-  update();
-  draw();
+  if (!gameStarted) {
+    drawMenu();
+  } else {
+    update();
+    draw();
+  }
   requestAnimationFrame(loop);
 }
 

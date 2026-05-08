@@ -76,13 +76,11 @@ window.addEventListener("keydown", (e) => {
     return;
   }
 
-  // REANUDAR TRAS GOL
   if (gamePaused && !gameFinished && key === "c") {
     resetPositions();
     gamePaused = false;
   }
 
-  // REINICIAR PARTIDA
   if (gameFinished && key === "c") {
 
     golesAzul = 0;
@@ -100,57 +98,133 @@ window.addEventListener("keydown", (e) => {
 
 function drawMenu() {
 
-  ctx.fillStyle = "#1e6b40";
+  ctx.fillStyle = "#14532d";
   ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+  for (let i = 0; i < WIDTH; i += 80) {
+
+    ctx.fillStyle =
+      i % 160 === 0
+        ? "#166534"
+        : "#15803d";
+
+    ctx.fillRect(i, 0, 80, HEIGHT);
+  }
+
+  ctx.strokeStyle = "rgba(255,255,255,0.25)";
+  ctx.lineWidth = 4;
+
+  ctx.beginPath();
+  ctx.moveTo(WIDTH / 2, 0);
+  ctx.lineTo(WIDTH / 2, HEIGHT);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.arc(WIDTH / 2, HEIGHT / 2, 90, 0, Math.PI * 2);
+  ctx.stroke();
+
+  ctx.font = "bold 72px Arial";
+  ctx.textAlign = "center";
+
+  ctx.fillStyle = "black";
+  ctx.fillText(
+    "LIGA DE BOTITOS",
+    WIDTH / 2 + 4,
+    124
+  );
+
+  ctx.fillStyle = "#ffffff";
+  ctx.fillText(
+    "LIGA DE BOTITOS",
+    WIDTH / 2,
+    120
+  );
+
+  ctx.font = "28px Arial";
+
+  ctx.fillStyle = "#d1fae5";
+
+  ctx.fillText(
+    "Selecciona un modo de juego",
+    WIDTH / 2,
+    190
+  );
+
+  ctx.fillStyle = "rgba(0,0,0,0.35)";
+  ctx.fillRect(
+    WIDTH / 2 - 220,
+    260,
+    440,
+    90
+  );
+
+  ctx.strokeStyle = "white";
+  ctx.strokeRect(
+    WIDTH / 2 - 220,
+    260,
+    440,
+    90
+  );
+
+  ctx.fillStyle = "white";
+  ctx.font = "bold 34px Arial";
+
+  ctx.fillText(
+    "1    PARTIDO A 3 GOLES",
+    WIDTH / 2,
+    318
+  );
+
+  ctx.fillStyle = "rgba(0,0,0,0.35)";
+  ctx.fillRect(
+    WIDTH / 2 - 220,
+    390,
+    440,
+    90
+  );
+
+  ctx.strokeStyle = "white";
+  ctx.strokeRect(
+    WIDTH / 2 - 220,
+    390,
+    440,
+    90
+  );
 
   ctx.fillStyle = "white";
 
-  ctx.textAlign = "center";
-
-  ctx.font = "bold 60px Arial";
   ctx.fillText(
-    "FUTBOLITOS",
+    "2    GOL DE ORO",
     WIDTH / 2,
-    140
+    448
   );
 
-  ctx.font = "36px Arial";
+  ctx.font = "22px Arial";
 
-  ctx.fillText(
-    "Pulsa 1 → Partido a 3 goles",
-    WIDTH / 2,
-    280
-  );
+  ctx.fillStyle = "#e5e7eb";
 
-  ctx.fillText(
-    "Pulsa 2 → Gol de oro",
-    WIDTH / 2,
-    360
-  );
 
-  ctx.font = "24px Arial";
+  ctx.beginPath();
+  ctx.fillStyle = "white";
+  ctx.arc(WIDTH / 2, HEIGHT - 150, 22, 0, Math.PI * 2);
+  ctx.fill();
 
-  ctx.fillText(
-    "Primer equipo en marcar gana",
-    WIDTH / 2,
-    430
-  );
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 3;
+  ctx.stroke();
 }
 
 function resetPositions() {
 
-  // jugador
   jugador.x = 120;
   jugador.y = HEIGHT / 2;
 
-  // bots azules
   bots[0].x = 120;
   bots[0].y = HEIGHT / 4;
 
   bots[1].x = 120;
   bots[1].y = HEIGHT * 3 / 4;
 
-  // bots rojos
   bots[2].x = 780;
   bots[2].y = HEIGHT / 4;
 
@@ -160,7 +234,6 @@ function resetPositions() {
   bots[4].x = 780;
   bots[4].y = HEIGHT * 3 / 4;
 
-  // reset direcciones
   jugador.dirX = 1;
   jugador.dirY = 0;
 
@@ -169,7 +242,6 @@ function resetPositions() {
     bot.dirY = 0;
   }
 
-  // balón centro
   owner = null;
 
   bola.x = WIDTH / 2;
@@ -234,7 +306,6 @@ function drawBackground() {
   ctx.arc(WIDTH / 2, HEIGHT / 2, 70, 0, Math.PI * 2);
   ctx.stroke();
 
-  // MARCADOR EN EL CAMPO
   ctx.save();
 
   ctx.fillStyle = "rgba(255,255,255,0.15)";
@@ -242,21 +313,18 @@ function drawBackground() {
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
 
-  // marcador azul
   ctx.fillText(
     golesAzul,
     WIDTH / 2 - 100,
     HEIGHT / 2
   );
 
-  // separador
   ctx.fillText(
     "-",
     WIDTH / 2,
     HEIGHT / 2
   );
 
-  // marcador rojo
   ctx.fillText(
     golesRojo,
     WIDTH / 2 + 100,
@@ -379,20 +447,16 @@ function objectInRay(bot, obj) {
 function intentarRobo() {
   if (!owner) return;
 
-  // cooldown global de robo
   if (stealCooldown > 0) return;
 
   const todos = [jugador, ...bots];
 
     for (const p of todos) {
 
-      // no puede robarse a sí mismo
       if (p === owner) continue;
 
-      // solo rivales
       if (p.color === owner.color) continue;
 
-      // si está tocando al poseedor
       if (isTouching(p, owner)) {
 
         let probabilidad = 0.2;
@@ -405,11 +469,9 @@ function intentarRobo() {
 
           owner = p;
 
-          // pegar balón al nuevo dueño
           bola.vx = 0;
           bola.vy = 0;
 
-          // cooldowns
           stealCooldown = 200;
           cooldown = 10;
 
@@ -606,7 +668,6 @@ class Bot extends Character {
   }
 
   defensa() {
-    // 1. SIN BALÓN → comportamiento normal
     if (owner == null) {
       if (this.color == "azul") {
         this.moveTowards(bola.x - 200, bola.y);
@@ -618,7 +679,6 @@ class Bot extends Character {
       return;
     }
 
-    // 2. SI NO ES EL DUEÑO DE LA PELOTA → apoyo simple
     if (owner !== this) {
       if (owner.color == this.color) {
         if (this.color == "azul") {
@@ -748,12 +808,6 @@ class Bot extends Character {
 
     ctx.restore();
 
-    //ctx.beginPath();
-    //ctx.moveTo(this.rayStartX, this.rayStartY);
-    //ctx.lineTo(this.rayEndX, this.rayEndY);
-    //ctx.strokeStyle = "yellow";
-    //ctx.lineWidth = 2;
-    //ctx.stroke();
   }
 }
 
@@ -827,7 +881,6 @@ function update() {
 
   intentarRobo();
 
-  // GOL IZQUIERDA -> marca azul
   if (
     bola.x - bola.radius <= porti.x + porti.width &&
     bola.y >= porti.y - porti.height / 2 &&
@@ -836,7 +889,6 @@ function update() {
 
     golesRojo++;
 
-    // ¿ha ganado?
     let rojoGana = false;
 
     if (currentMode === "3goals" && golesRojo >= 3) {
@@ -856,7 +908,6 @@ function update() {
     gamePaused = true;
   }
 
-  // GOL DERECHA -> marca rojo
   if (
     bola.x + bola.radius >= portd.x &&
     bola.y >= portd.y - portd.height / 2 &&
@@ -865,7 +916,6 @@ function update() {
 
     golesAzul++;
 
-    // ¿ha ganado?
     let azulGana = false;
 
     if (currentMode === "3goals" && golesAzul >= 3) {

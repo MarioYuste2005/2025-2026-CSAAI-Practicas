@@ -170,7 +170,7 @@ function drawMenu() {
   ctx.font = "bold 34px Arial";
 
   ctx.fillText(
-    "1    PARTIDO A 3 GOLES",
+    "1 PARTIDO A 3 GOLES",
     WIDTH / 2,
     318
   );
@@ -194,7 +194,7 @@ function drawMenu() {
   ctx.fillStyle = "white";
 
   ctx.fillText(
-    "2    GOL DE ORO",
+    "2 GOL DE ORO",
     WIDTH / 2,
     448
   );
